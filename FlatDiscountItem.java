@@ -1,32 +1,30 @@
-import java.util.Locale; //this helps with formating the number printed on the receipt
-
 public class FlatDiscountItem extends Item {
 
-    private int item_num;
-    private double amount_off;
+    private int minQuantity;
+    private double flatAmount;
 
-    public FlatDiscountItem(String name, double price, int item_num, double amount_off) {
+    public FlatDiscountItem(String name, double price, int minQuantity, double flatAmount) {
         super(name, price);
-        this.item_num = item_num;
-        this.amount_off = amount_off;
+        this.minQuantity = minQuantity;
+        this.flatAmount = flatAmount;
     }
 
-    @Override //this changes the calculateTotal from the parent to subtotal
+    public int getMinQuantity() {
+        return minQuantity;
+    }
+
+    public double getFlatAmount() {
+        return flatAmount;
+    }
+
+    @Override
     public double calculateTotal(int quantity) {
         double subtotal = super.calculateTotal(quantity);
 
-        if (quantity >= item_num) {
-            subtotal = Math.max(0, subtotal - amount_off);
+        if (quantity >= minQuantity) {
+            subtotal = Math.max(0, subtotal - flatAmount);
         }
 
         return subtotal;
-    }
-
-    @Override//New discount with amount off subtracted
-    public String getDiscountNote(int quantity) {
-        if (quantity >= item_num) {
-            return "UGX " + String.format(Locale.US, "%,.0f", amount_off) + " discount applied";
-        }
-        return "";
     }
 }
