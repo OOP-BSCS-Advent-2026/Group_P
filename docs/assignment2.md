@@ -62,7 +62,7 @@ Run this and your total should come out to UGX 105,241.84 — the exact same num
 
 _Notice the array's type: Item[], not PercentDiscountItem[]. A single array can hold all three subclasses at once, because every one of them is an Item — and calling calculateTotal() on each runs whichever version actually belongs to that object. You haven't been formally taught the name for this yet; you've just built it._ 
 
-## Deloiverables 
+## Deliverables 
 
 1. Item.java — the superclass, encapsulated exactly as shown above (or with your own reasonable variable names). 
 
