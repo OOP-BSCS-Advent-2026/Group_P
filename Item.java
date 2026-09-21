@@ -37,6 +37,10 @@ public class Item {
         return price;
     }
 
+    public String getDiscountNote(int quantity) {
+        return "";
+    }
+
     /**
      * Calculates the total for the given quantity with no discount.
      * Subclasses override this method to apply their own discount rule.
